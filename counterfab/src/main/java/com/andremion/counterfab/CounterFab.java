@@ -41,7 +41,7 @@ import android.view.animation.OvershootInterpolator;
  * A {@link FloatingActionButton} subclass that shows a counter badge on right top corner.
  */
 public class CounterFab extends FloatingActionButton {
-
+    Context _context;
     private final Property<CounterFab, Float> ANIMATION_PROPERTY =
             new Property<CounterFab, Float>(Float.class, "animation") {
 
@@ -80,14 +80,17 @@ public class CounterFab extends FloatingActionButton {
 
     public CounterFab(Context context) {
         this(context, null, 0);
+        _context = context;
     }
 
     public CounterFab(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        _context = context;
     }
 
     public CounterFab(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        _context = context;
         setUseCompatPadding(true);
 
         final float density = getResources().getDisplayMetrics().density;
@@ -103,7 +106,8 @@ public class CounterFab extends FloatingActionButton {
         mTextPaint.setColor(Color.WHITE);
         mTextPaint.setTextSize(mTextSize);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
-        mTextPaint.setTypeface(Typeface.SANS_SERIF);
+//        mTextPaint.setTypeface(Typeface.SANS_SERIF);
+        mTextPaint.setTypeface(GetTypeFace("BYEKAN.TTF"));
 
         mCirclePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mCirclePaint.setStyle(Paint.Style.FILL);
@@ -280,5 +284,8 @@ public class CounterFab extends FloatingActionButton {
         setCount(ss.count);
         requestLayout();
     }
-
+    private Typeface GetTypeFace(String fontName){
+        Typeface face = Typeface.createFromAsset(_context.getAssets(), "fonts/" + fontName);
+        return face;
+    }
 }
