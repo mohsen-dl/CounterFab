@@ -57,6 +57,7 @@ public class CounterFab extends FloatingActionButton {
                 }
             };
 
+    private static final int MY_Custom_COLOR = Color.parseColor("#43A047");
     private static final int MAX_COUNT = 99;
     private static final String MAX_COUNT_TEXT = "99+";
     private static final int TEXT_SIZE_DP = 11;
@@ -121,7 +122,7 @@ public class CounterFab extends FloatingActionButton {
                 mCirclePaint.setColor(colorDrawable.getColor());
             }
         }
-
+        mCirclePaint.setColor(MY_Custom_COLOR);
         mMaskPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mMaskPaint.setStyle(Paint.Style.FILL);
         mMaskPaint.setColor(MASK_COLOR);
