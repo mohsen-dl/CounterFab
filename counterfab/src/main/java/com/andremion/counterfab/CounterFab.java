@@ -57,10 +57,10 @@ public class CounterFab extends FloatingActionButton {
                 }
             };
 
-    private static final int MY_Custom_COLOR = Color.parseColor("#43A047");
+    private static final int MY_Custom_COLOR = Color.parseColor("#1DE9B6");
     private static final int MAX_COUNT = 99;
     private static final String MAX_COUNT_TEXT = "99+";
-    private static final int TEXT_SIZE_DP = 11;
+    private static final int TEXT_SIZE_DP = 12;
     private static final int TEXT_PADDING_DP = 2;
     private static final int MASK_COLOR = Color.parseColor("#33000000"); // Translucent black as mask color
     private static final Interpolator ANIMATION_INTERPOLATOR = new OvershootInterpolator();
@@ -206,7 +206,7 @@ public class CounterFab extends FloatingActionButton {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         getContentRect(mContentBounds);
-        mCircleBounds.offsetTo(mContentBounds.left + mContentBounds.width() - mCircleBounds.width(), mContentBounds.top);
+        mCircleBounds.offsetTo(mContentBounds.left + mContentBounds.width() + 15 - mCircleBounds.width(), mContentBounds.top-15);
     }
 
     @Override
